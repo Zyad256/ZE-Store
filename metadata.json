@@ -1,0 +1,6 @@
+{
+  "name": "APK Hub - GitHub Releases Store",
+  "description": "Clean, lightweight Android APK store for serving apps directly from GitHub Releases with screenshot galleries, version tracking, and direct download links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
