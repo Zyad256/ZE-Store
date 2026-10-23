@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PackageOpen } from 'lucide-react';
 import { INITIAL_APPS } from './data/apps';
 import { AppItem } from './types/app';
 import { Navbar } from './components/Navbar';
@@ -51,7 +52,7 @@ export default function App() {
             onOpenLightbox={handleOpenLightbox}
             onTriggerDownload={handleTriggerDownload}
           />
-        ) : (
+        ) : apps.length > 0 ? (
           /* Main Screen: Clean list of apps with direct download */
           <div className="space-y-3 sm:space-y-4 animate-fadeIn">
             {apps.map((app) => (
@@ -65,6 +66,17 @@ export default function App() {
                 onTriggerDownload={handleTriggerDownload}
               />
             ))}
+          </div>
+        ) : (
+          /* Empty state when no apps are configured */
+          <div className="flex flex-col items-center justify-center py-20 px-4 text-center animate-fadeIn">
+            <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center text-slate-400 mb-4">
+              <PackageOpen size={32} />
+            </div>
+            <h2 className="text-lg font-bold text-slate-800 mb-1">No apps available</h2>
+            <p className="text-sm text-slate-500 max-w-sm">
+              Add your Android app configurations to <code className="px-1.5 py-0.5 rounded bg-slate-200/60 font-mono text-xs text-slate-700">src/data/apps.ts</code> to display them here.
+            </p>
           </div>
         )}
       </main>
